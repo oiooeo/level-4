@@ -1,8 +1,7 @@
 import { styled } from "styled-components";
 
 const FooterContainer = styled.div`
-  position: absolute;
-  bottom: 0;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -4,7 +4,7 @@ import { FooterContainer, FooterIcons } from "./style";
 function Footer() {
   return (
     <FooterContainer>
-      <p>ᴛᴏ ᴅᴏ ʟɪsᴛ</p>
+      <p>Polaroids</p>
       <p> &copy; 2023 All rights reserved</p>
 
       <FooterIcons>

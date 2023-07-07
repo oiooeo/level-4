@@ -5,8 +5,8 @@ const HeaderContainer = styled.div`
   padding: 15px;
   justify-content: space-between;
   border-bottom: 1px solid #c1c1c1;
-  font-size: larger;
-  font-weight: 700;
+  font-size: large;
+  font-weight: 600;
 
   & > h1 {
     color: #2c2c2c;
@@ -15,7 +15,7 @@ const HeaderContainer = styled.div`
   & > p {
     position: relative;
     display: inline-flex;
-    color: #86a8e7;
+    color: #8ed3e5;
     cursor: pointer;
   }
 `;
