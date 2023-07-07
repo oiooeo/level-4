@@ -11,8 +11,8 @@ function Header() {
 
   return (
     <HeaderContainer>
-      <p onClick={moveToMain}>ʜᴏᴍᴇ</p>
-      <h1>ᴛᴏ ᴅᴏ ʟɪsᴛ</h1>
+      <p onClick={moveToMain}>HOME</p>
+      <h1>Polaroids</h1>
     </HeaderContainer>
   );
 }

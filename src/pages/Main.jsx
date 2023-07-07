@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { styled } from "styled-components";
+import List from "../components/List/List";
 
 function Main() {
   const navigation = useNavigate();
@@ -10,16 +11,10 @@ function Main() {
     navigation("/write");
   };
 
-  const moveToList = () => {
-    navigation("/list");
-  };
-
   return (
     <MainContainer>
-      <Buttons>
-        <Button onClick={moveToWrite}>✍🏻 𝙉𝙚𝙬</Button>
-        <Button onClick={moveToList}>📝 𝙇𝙞𝙨𝙩</Button>
-      </Buttons>
+      <Button onClick={moveToWrite}>📸 NEW</Button>
+      <List />
     </MainContainer>
   );
 }
@@ -27,11 +22,7 @@ function Main() {
 export default Main;
 
 const MainContainer = styled.div`
-  padding: 30px;
-`;
-
-const Buttons = styled.div`
   display: flex;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column;
+  padding: 10px;
 `;
