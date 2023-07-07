@@ -14,7 +14,7 @@ const ToDoList = styled.li`
 
   .wrap {
     color: #2c2c2c;
-    height: 220px;
+    height: 230px;
     width: 200px;
     padding: 10px;
     background-color: #ffffff;
@@ -54,8 +54,8 @@ const ToDoList = styled.li`
 const Image = styled.img`
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
 `;
 
