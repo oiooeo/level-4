@@ -8,7 +8,7 @@ const initialState = [
     contents: "우리 넘 기여운듯~",
     image:
       "https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg",
-    userName: "가",
+    user: "가",
   },
 ];
 
