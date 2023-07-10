@@ -8,9 +8,9 @@ function Detail() {
   const [polaroid, setPolaroid] = useState(null);
   const navigate = useNavigate();
   const params = useParams();
+  const { id } = params;
 
   const fetchTodos = async () => {
-    const { id } = params;
     const { data } = await api.get(`/polaroid/${id}`);
     setPolaroid(data);
   };
@@ -20,6 +20,16 @@ function Detail() {
   }, []);
 
   const backButtonClickHandler = () => {
+    navigate(-1);
+  };
+
+  const deleteButtonClickHandler = () => {
+    api.delete(`polaroid/${id}`);
+    alert("삭제되었습니다");
+    navigate("/");
+  };
+
+  const updateButtonClickHandler = () => {
     navigate(-1);
   };
 
@@ -35,13 +45,13 @@ function Detail() {
         </Button>
 
         <div>
-          <Button size={"small"} onClick={backButtonClickHandler}>
+          <Button size={"small"} onClick={updateButtonClickHandler}>
             UPDATE
           </Button>
           <Button
             size={"small"}
             color={"#9e9e9e"}
-            onClick={backButtonClickHandler}
+            onClick={deleteButtonClickHandler}
           >
             DELETE
           </Button>
