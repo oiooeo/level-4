@@ -15,7 +15,7 @@ const StyledInput = styled.input`
   width: 80%;
   padding: 5px;
   border: none;
-  border-bottom: 2px solid #2c2c2c;
+  border-bottom: 1px solid #2c2c2c;
 
   &:focus {
     outline: none !important;
