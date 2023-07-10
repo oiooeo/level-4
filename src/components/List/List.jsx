@@ -6,7 +6,7 @@ function List() {
     <ListContainer>
       <ul>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -18,7 +18,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/07/60/85/076085d7c4c23f655e06bcabd5ace8b4.jpg"
               alt=""
@@ -30,7 +30,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -42,7 +42,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -54,7 +54,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -66,7 +66,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -78,7 +78,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -90,7 +90,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -102,7 +102,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -114,7 +114,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
@@ -126,7 +126,7 @@ function List() {
           </div>
         </ToDoList>
         <ToDoList>
-          <div class="wrap">
+          <div className="wrap">
             <Image
               src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
               alt=""
