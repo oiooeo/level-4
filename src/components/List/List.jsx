@@ -1,142 +1,49 @@
 import React from "react";
-import { ListContainer, ToDoList, Image, DIV } from "./style";
+import { ListContainer, Li, Image, DIV } from "./style";
+import { useQuery } from "react-query";
+import { getPolaroid } from "../../api/polaroid";
+import { useNavigate } from "react-router-dom";
 
 function List() {
+  const navigation = useNavigate();
+  const { isLoading, isError, data } = useQuery("polaroid", getPolaroid);
+
+  const JsonData = data?.data || [];
+
+  if (isLoading) {
+    return <p>로딩중입니다....!</p>;
+  }
+
+  if (isError) {
+    return <p>오류가 발생하였습니다...!</p>;
+  }
+
+  const polaroidClickEventHandler = (id) => {
+    navigation(`/${id}`);
+  };
+
   return (
     <ListContainer>
       <ul>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/07/60/85/076085d7c4c23f655e06bcabd5ace8b4.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
-        <ToDoList>
-          <div className="wrap">
-            <Image
-              src="https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg"
-              alt=""
-            />
-            <DIV>
-              <p>제목</p>
-              <span>작성자: </span>
-            </DIV>
-          </div>
-        </ToDoList>
+        {JsonData &&
+          JsonData.map((item) => {
+            return (
+              <Li
+                key={item.id}
+                onClick={() => {
+                  polaroidClickEventHandler(item.id);
+                }}
+              >
+                <div className="wrap">
+                  <Image src={item.image} alt="" />
+                  <DIV>
+                    <p>{item.title}</p>
+                    <span>{item.user}</span>
+                  </DIV>
+                </div>
+              </Li>
+            );
+          })}
       </ul>
     </ListContainer>
   );

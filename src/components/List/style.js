@@ -7,20 +7,23 @@ const ListContainer = styled.div`
   padding: 30px;
 `;
 
-const ToDoList = styled.li`
+const Li = styled.li`
   margin: 15px;
   float: left;
   position: relative;
 
   .wrap {
+    display: flex;
+    flex-direction: column;
     color: #2c2c2c;
-    height: 230px;
+    height: 250px;
     width: 200px;
     padding: 10px;
     background-color: #ffffff;
     border: 1px solid #2c2c2c;
     box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
     text-align: center;
+    align-items: center;
   }
 
   &:nth-child(even) .wrap {
@@ -54,18 +57,20 @@ const ToDoList = styled.li`
 const Image = styled.img`
   justify-content: center;
   align-items: center;
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
 `;
 
 const DIV = styled.div`
-  margin-top: 3px;
-  text-align: start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  gap: 10px;
 
   span {
-    font-size: small;
+    font-size: 12px;
   }
 `;
 
-export { ListContainer, ToDoList, Image, DIV };
+export { ListContainer, Li, Image, DIV };
