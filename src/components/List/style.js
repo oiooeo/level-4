@@ -70,6 +70,7 @@ const DIV = styled.div`
 
   span {
     font-size: 12px;
+    letter-spacing: 1px;
   }
 `;
 

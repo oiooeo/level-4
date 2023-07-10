@@ -3,23 +3,16 @@
     {
       "id": 1,
       "title": "내 베푸",
-      "contents": "우리 넘 기여운듯~",
+      "content": "우리 넘 기여운듯~",
       "image": "https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg",
       "user": "까망양"
     },
     {
       "id": 2,
       "title": "굿굿",
-      "contents": "굿굿",
+      "content": "굿굿",
       "image": "https://i.pinimg.com/564x/07/60/85/076085d7c4c23f655e06bcabd5ace8b4.jpg",
       "user": "나"
-    },
-    {
-      "user": "s",
-      "title": "s",
-      "content": "s",
-      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/KakaoTalk_Photo_2023-06-29-21-39-29.jpeg?alt=media&token=6fc01108-2bb5-4e15-bd6b-23e4bcdd3249",
-      "id": "c504075e-353c-4848-b31c-4cc3b0782a41"
     },
     {
       "user": "c",
@@ -36,18 +29,18 @@
       "id": "afc71551-b1e2-42e0-9f03-bdc9b3df3dc3"
     },
     {
-      "user": "2",
-      "title": "2",
-      "content": "2",
-      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/KakaoTalk_Photo_2023-06-29-21-42-53.jpeg?alt=media&token=5379f14a-7487-4e37-b8dc-cf774f7b0e00",
-      "id": "40ee374f-62bc-4ad1-8544-af2c88599c76"
-    },
-    {
       "user": "3",
       "title": "3",
       "content": "3",
       "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/KakaoTalk_Photo_2023-06-29-21-39-29.jpeg?alt=media&token=61f54211-6ad1-49f5-b2ca-83d2c304c52b",
       "id": "33d924e7-00b0-43fd-aeab-949d59a0dd86"
+    },
+    {
+      "user": "웅",
+      "title": "츄러스",
+      "content": "넘 마싯어요",
+      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/24b9d5b1e0a746e026a1665f3314a055.jpg?alt=media&token=44a5104e-ca2f-471e-8a9b-9e4bd918995b",
+      "id": "9b80b1b2-6853-4af9-8ad3-8bbc47111c4f"
     }
   ]
 }

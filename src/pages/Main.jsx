@@ -26,5 +26,6 @@ export default Main;
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 100px;
   padding: 10px;
 `;
