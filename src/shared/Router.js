@@ -5,6 +5,7 @@ import Main from "../pages/Main";
 import Detail from "../pages/Detail";
 import Write from "../pages/Write";
 import { styled } from "styled-components";
+import Update from "../pages/Update";
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
           <Route path="/" element={<Main />} />
           <Route path="/write" element={<Write />} />
           <Route path="/:id" element={<Detail />} />
+          <Route path="/:id/update" element={<Update />} />
         </Routes>
         <Footer />
       </Layout>
