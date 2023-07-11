@@ -47,17 +47,6 @@ const TextDiv = styled.div`
   width: 468px;
   margin-top: 10px;
 
-  h1 {
-    margin: 5px;
-    font-size: 18px;
-    font-weight: 500;
-  }
-
-  h2 {
-    margin: 5px;
-    font-size: 14px;
-  }
-
   span {
     float: right;
     margin: 5px;

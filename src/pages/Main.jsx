@@ -14,7 +14,7 @@ function Main() {
   return (
     <MainContainer>
       <Button size={"small"} onClick={moveToWrite}>
-        📸 NEW
+        NEW
       </Button>
       <List />
     </MainContainer>

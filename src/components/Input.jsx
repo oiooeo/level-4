@@ -12,7 +12,8 @@ function ContentInput({ ...props }) {
 export { Input, ContentInput };
 
 const StyledInput = styled.input`
-  width: 80%;
+  width: 100%;
+  margin: 5px 0;
   padding: 5px;
   border: none;
   border-bottom: 1px solid #2c2c2c;
@@ -25,7 +26,8 @@ const StyledInput = styled.input`
 `;
 
 const Content = styled.textarea`
-  width: 80%;
+  width: 100%;
+  margin: 5px 0;
   height: 200px;
   padding: 5px;
   border: 1px solid #2c2c2c;
