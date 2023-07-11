@@ -2,52 +2,17 @@
   "polaroid": [
     {
       "id": 1,
-      "title": "내 베푸",
-      "content": "우리 넘 기여운듯~",
+      "title": "Our Selfie ~ 💖",
+      "content": "어떤가염",
       "image": "https://i.pinimg.com/564x/39/f4/53/39f453d50a8060205fc7e9bc47d67a7f.jpg",
       "user": "까망양"
     },
     {
-      "id": 2,
-      "title": "1",
-      "content": "1",
-      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/748d9f61c995b3ab7c4b48b8ee2e2e04.jpg?alt=media&token=264ea91c-11bd-44a5-b360-e2fadb548a00",
-      "user": "나"
-    },
-    {
-      "user": "웅",
-      "title": "츄러스",
-      "content": "넘 마싯어요",
-      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/24b9d5b1e0a746e026a1665f3314a055.jpg?alt=media&token=44a5104e-ca2f-471e-8a9b-9e4bd918995b",
-      "id": "9b80b1b2-6853-4af9-8ad3-8bbc47111c4f"
-    },
-    {
-      "user": "2",
-      "title": "눈싸움",
-      "content": "꺅",
-      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/8bb8619b0be4e72b6603f6191eb01cb0.jpg?alt=media&token=c94498c9-4bf5-4085-a6db-2338001312ee",
-      "id": "cedb59ca-6c07-4874-b8b7-f3f73685b26f"
-    },
-    {
-      "id": "1f65f4e8-2ecc-454e-9f2e-381af019bf74",
+      "id": "63d64a81-f1b4-4a2d-8e00-793043c891d1",
       "user": "1",
-      "title": "1",
-      "content": "1",
-      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/a1d80ade29b05cf5c62fa984a75318cc.jpg?alt=media&token=f2bad7ca-3ee9-4851-94f6-d03844de3fa0"
-    },
-    {
-      "id": "16668c6e-8ea3-4bb1-8b31-e223d9a573f8",
-      "user": "2",
-      "title": "2",
-      "content": "2",
-      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/24b9d5b1e0a746e026a1665f3314a055.jpg?alt=media&token=3983df38-d042-4570-bcf7-ad46933b964b"
-    },
-    {
-      "id": "7fb42283-33a8-48cd-a739-1a62303169f6",
-      "user": "3",
-      "title": "3",
-      "content": "3",
-      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/ad81ebb84107d9fc10a7e1c335d4c823.jpg?alt=media&token=befdc951-0322-4fa6-bdc2-e90f478dc251"
+      "title": "22",
+      "content": "22",
+      "image": "https://firebasestorage.googleapis.com/v0/b/polaroid-4a62f.appspot.com/o/076085d7c4c23f655e06bcabd5ace8b4.jpg?alt=media&token=9d147b06-494e-438f-94ab-0f6f2389c165"
     }
   ]
 }

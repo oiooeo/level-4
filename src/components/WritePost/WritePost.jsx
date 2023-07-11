@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import { ContentInput, Input } from "../../components/Input";
 import { useNavigate } from "react-router-dom";
@@ -10,12 +10,12 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../firebase";
 import {
   Container,
-  Form,
-  InputDiv,
+  Buttons,
+  Polaroid,
+  Image,
+  TextDiv,
   ImageInput,
   Label,
-  View,
-  ButtonDiv,
 } from "./style";
 
 function WritePost() {
@@ -24,6 +24,7 @@ function WritePost() {
   const [content, onChangeContentHandler] = useInput("");
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const queryClient = useQueryClient();
   const mutation = useMutation(addPolaroid, {
@@ -62,16 +63,16 @@ function WritePost() {
     }
   };
 
-  const cancelButtonClickHandler = () => {
-    navigate("/");
+  const backButtonClickHandler = () => {
+    navigate(-1);
   };
 
   const submitButtonClickHandler = async (event) => {
     event.preventDefault();
 
-    // if (!user || !title || !content) {
-    //   return console.log("값을 모두 입력하세요");
-    // }
+    if (submitButtonDisabled) {
+      return;
+    }
 
     const imageLink = await handleUpload();
 
@@ -87,43 +88,34 @@ function WritePost() {
     navigate("/");
   };
 
+  useEffect(() => {
+    setSubmitButtonDisabled(!(imageFile && user && title && content));
+  }, [imageFile, user, title, content]);
+
   return (
     <Container>
-      <Form>
-        <InputDiv>
-          <p>작성자</p>
-          <Input
-            type="text"
-            value={user}
-            id="user"
-            onChange={onChangeUserHandler}
-            placeholder="작성자를 적어주세요"
-          />
-        </InputDiv>
+      <Buttons>
+        <Button
+          size={"small"}
+          color={"#9e9e9e"}
+          onClick={backButtonClickHandler}
+        >
+          BACK
+        </Button>
 
-        <InputDiv>
-          <p>제목</p>
-          <Input
-            type="text"
-            value={title}
-            id="title"
-            onChange={onChangeTitleHandler}
-            placeholder="제목을 적어주세요"
-          />
-        </InputDiv>
+        <Button
+          size={"small"}
+          color={submitButtonDisabled ? "#9e9e9e" : undefined}
+          onClick={submitButtonClickHandler}
+        >
+          📸 CLICK
+        </Button>
+      </Buttons>
 
-        <InputDiv>
-          <p>내용</p>
-          <ContentInput
-            type="text"
-            value={content}
-            id="content"
-            onChange={onChangeContentHandler}
-            placeholder="내용을 적어주세요"
-          />
-        </InputDiv>
+      <Polaroid>
+        <Image src={imagePreview || undefined} alt="" />
 
-        <InputDiv>
+        <TextDiv>
           <Label htmlFor="file">📸 사진 선택하기</Label>
           <ImageInput
             type="file"
@@ -131,25 +123,39 @@ function WritePost() {
             id="file"
             accept="image/*"
           />
-        </InputDiv>
 
-        <div>
-          <View src={imagePreview || undefined} alt="" />
-        </div>
+          <h1>
+            <Input
+              id="title"
+              type="text"
+              value={title}
+              onChange={onChangeTitleHandler}
+              placeholder="제목을 적어주세요 (필수 / 20자 이내)"
+              maxLength="20"
+            />
+          </h1>
 
-        <ButtonDiv>
-          <Button
-            size={"small"}
-            color={"#ff8787"}
-            onClick={cancelButtonClickHandler}
-          >
-            취소
-          </Button>
-          <Button size={"small"} onClick={submitButtonClickHandler}>
-            등록
-          </Button>
-        </ButtonDiv>
-      </Form>
+          <h2>
+            <ContentInput
+              id="content"
+              type="text"
+              value={content}
+              onChange={onChangeContentHandler}
+              placeholder="내용을 적어주세요 (300자 이내)"
+              maxLength="300"
+            />
+          </h2>
+          <span>
+            <Input
+              id="user"
+              type="text"
+              value={user}
+              onChange={onChangeUserHandler}
+              placeholder="작성자를 적어주세요"
+            />
+          </span>
+        </TextDiv>
+      </Polaroid>
     </Container>
   );
 }

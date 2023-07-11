@@ -22,6 +22,7 @@ function UpdatePost() {
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [polaroid, setPolaroid] = useState(null);
+  const [updateButtonDisabled, setUpdateButtonDisabled] = useState(false);
 
   const navigate = useNavigate();
 
@@ -70,8 +71,16 @@ function UpdatePost() {
     navigate(-1);
   };
 
+  useEffect(() => {
+    setUpdateButtonDisabled(!(title && content));
+  }, [title, content]);
+
   const updateButtonClickHandler = async (event) => {
     event.preventDefault();
+
+    if (updateButtonDisabled) {
+      return;
+    }
 
     let imageLink = polaroid.image;
 
@@ -95,10 +104,14 @@ function UpdatePost() {
           color={"#9e9e9e"}
           onClick={backButtonClickHandler}
         >
-          ◀︎ BACK
+          BACK
         </Button>
 
-        <Button size={"small"} onClick={updateButtonClickHandler}>
+        <Button
+          size={"small"}
+          color={updateButtonDisabled ? "#9e9e9e" : undefined}
+          onClick={updateButtonClickHandler}
+        >
           UPDATE
         </Button>
       </Buttons>

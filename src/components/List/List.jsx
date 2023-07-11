@@ -37,7 +37,7 @@ function List() {
                   <Image src={item.image} alt="" />
                   <DIV>
                     <p>{item.title}</p>
-                    <span>{item.user}</span>
+                    <span>@{item.user}</span>
                   </DIV>
                 </div>
               </Li>

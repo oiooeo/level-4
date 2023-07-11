@@ -41,7 +41,7 @@ function DetailPost() {
           color={"#9e9e9e"}
           onClick={backButtonClickHandler}
         >
-          ◀︎ BACK
+          BACK
         </Button>
 
         <div>
