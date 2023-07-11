@@ -30,7 +30,7 @@ function Detail() {
   };
 
   const updateButtonClickHandler = () => {
-    navigate(-1);
+    navigate("update");
   };
 
   return (
@@ -48,6 +48,7 @@ function Detail() {
           <Button size={"small"} onClick={updateButtonClickHandler}>
             UPDATE
           </Button>
+
           <Button
             size={"small"}
             color={"#9e9e9e"}
@@ -76,7 +77,7 @@ const DetailContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1300px;
-  padding: 10px;
+  padding: 10px 0;
   margin: 0 auto;
   margin-bottom: 100px;
 `;

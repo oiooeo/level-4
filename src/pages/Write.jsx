@@ -7,17 +7,15 @@ import useInput from "../hooks/useInput";
 import { useMutation, useQueryClient } from "react-query";
 import { addPolaroid } from "../api/polaroid";
 import { v4 as uuidv4 } from "uuid";
-import { useSelector } from "react-redux";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../firebase";
 
 function Write() {
-  const [user, onChangeUserHandler] = useInput();
-  const [title, onChangeTitleHandler] = useInput();
-  const [content, onChangeContentHandler] = useInput();
+  const [user, onChangeUserHandler] = useInput("");
+  const [title, onChangeTitleHandler] = useInput("");
+  const [content, onChangeContentHandler] = useInput("");
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-  let imageLink = "";
 
   const queryClient = useQueryClient();
   const mutation = useMutation(addPolaroid, {
@@ -67,20 +65,16 @@ function Write() {
     //   return console.log("값을 모두 입력하세요");
     // }
 
-    // const imageLink = handleUpload();
-    // console.log(imageLink);
-
     const imageLink = await handleUpload();
 
     const newPolaroid = {
+      id: uuidv4(),
       user,
       title,
       content,
       image: imageLink,
-      id: uuidv4(),
     };
 
-    console.log("newPolaroid", newPolaroid);
     mutation.mutate(newPolaroid);
     navigate("/");
   };
