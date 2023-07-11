@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 function List() {
   const navigation = useNavigate();
   const { isLoading, isError, data } = useQuery("polaroid", getPolaroid);
-
   const JsonData = data?.data || [];
 
   if (isLoading) {
@@ -38,7 +37,7 @@ function List() {
                   <Image src={item.image} alt="" />
                   <DIV>
                     <p>{item.title}</p>
-                    <span>@{item.user}</span>
+                    <span>{item.user}</span>
                   </DIV>
                 </div>
               </Li>
