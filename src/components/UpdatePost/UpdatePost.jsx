@@ -16,7 +16,7 @@ import {
   Label,
 } from "./style";
 import FillWarningModal from "../Modal/FillWarningModal";
-import UpdateDone from "../Modal/UpdateDone";
+import Success from "../Modal/Success";
 
 function UpdatePost() {
   const [imageFile, setImageFile] = useState(null);
@@ -81,6 +81,7 @@ function UpdatePost() {
 
   const updateButtonClickHandler = async (event) => {
     event.preventDefault();
+
     try {
       if (updateButtonDisabled) {
         setIsModalOpen(true);
@@ -128,9 +129,10 @@ function UpdatePost() {
         )}
 
         {isDoneModalOpen && (
-          <UpdateDone
+          <Success
             isModalOpen={isDoneModalOpen}
             setIsModalOpen={setIsDoneModalOpen}
+            text={"수정되었습니다"}
           />
         )}
       </Buttons>

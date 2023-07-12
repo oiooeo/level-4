@@ -17,6 +17,8 @@ import {
   ImageInput,
   Label,
 } from "./style";
+import FillWarningModal from "../Modal/FillWarningModal";
+import Success from "../Modal/Success";
 
 function WritePost() {
   const [user, onChangeUserHandler] = useInput("");
@@ -25,6 +27,8 @@ function WritePost() {
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDoneModalOpen, setIsDoneModalOpen] = useState(false);
 
   const queryClient = useQueryClient();
   const mutation = useMutation(addPolaroid, {
@@ -70,22 +74,25 @@ function WritePost() {
   const submitButtonClickHandler = async (event) => {
     event.preventDefault();
 
-    if (submitButtonDisabled) {
-      return;
-    }
+    try {
+      if (submitButtonDisabled) {
+        setIsModalOpen(true);
+        return;
+      }
 
-    const imageLink = await handleUpload();
+      const imageLink = await handleUpload();
 
-    const newPolaroid = {
-      id: uuidv4(),
-      user,
-      title,
-      content,
-      image: imageLink,
-    };
+      const newPolaroid = {
+        id: uuidv4(),
+        user,
+        title,
+        content,
+        image: imageLink,
+      };
 
-    mutation.mutate(newPolaroid);
-    navigate("/");
+      mutation.mutate(newPolaroid);
+      setIsDoneModalOpen(true);
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -108,8 +115,22 @@ function WritePost() {
           color={submitButtonDisabled ? "#9e9e9e" : undefined}
           onClick={submitButtonClickHandler}
         >
-          📸 CLICK
+          📷 CLICK
         </Button>
+        {isModalOpen && (
+          <FillWarningModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
+        )}
+
+        {isDoneModalOpen && (
+          <Success
+            isModalOpen={isDoneModalOpen}
+            setIsModalOpen={setIsDoneModalOpen}
+            text={"찰칵 📸"}
+          />
+        )}
       </Buttons>
 
       <Polaroid autoComplete="off">

@@ -22,7 +22,6 @@ const Outer = styled.div`
   left: 0;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   width: 100%;
   height: 100%;
   background-color: #00000010;
