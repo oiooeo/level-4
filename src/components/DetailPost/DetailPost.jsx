@@ -3,9 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../../axios/api";
 import Button from "../../components/Button";
 import { DetailContainer, Buttons, Polaroid, Image, TextDiv } from "./style";
+import DeleteConfirm from "../Modal/DeleteConfirm";
 
 function DetailPost() {
   const [polaroid, setPolaroid] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const navigate = useNavigate();
   const params = useParams();
   const { id } = params;
@@ -24,9 +27,7 @@ function DetailPost() {
   };
 
   const deleteButtonClickHandler = () => {
-    api.delete(`polaroid/${id}`);
-    alert("삭제되었습니다");
-    navigate("/");
+    setIsModalOpen(true);
   };
 
   const updateButtonClickHandler = () => {
@@ -56,6 +57,13 @@ function DetailPost() {
           >
             DELETE
           </Button>
+          {isModalOpen && (
+            <DeleteConfirm
+              id={id}
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+            />
+          )}
         </div>
       </Buttons>
 
