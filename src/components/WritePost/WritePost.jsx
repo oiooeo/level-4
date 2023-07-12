@@ -89,8 +89,8 @@ function WritePost() {
   };
 
   useEffect(() => {
-    setSubmitButtonDisabled(!(imageFile && user && title && content));
-  }, [imageFile, user, title, content]);
+    setSubmitButtonDisabled(!(imageFile && user && title));
+  }, [imageFile, user, title]);
 
   return (
     <Container>
@@ -112,7 +112,7 @@ function WritePost() {
         </Button>
       </Buttons>
 
-      <Polaroid>
+      <Polaroid autoComplete="off">
         <Image src={imagePreview || undefined} alt="" />
 
         <TextDiv>

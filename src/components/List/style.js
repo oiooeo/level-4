@@ -59,6 +59,7 @@ const Image = styled.img`
   align-items: center;
   width: 180px;
   height: 180px;
+  border: 0.5px solid #2c2c2c;
   object-fit: cover;
 `;
 

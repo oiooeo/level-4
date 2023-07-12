@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1300px;
   padding: 10px 0;
   margin: 0 auto;
   margin-bottom: 100px;
@@ -14,10 +13,6 @@ const Buttons = styled.div`
   justify-content: space-between;
   width: 97vw;
   margin-bottom: 30px;
-
-  @media screen and (min-width: 1300px) {
-    width: 1300px;
-  }
 `;
 
 const Polaroid = styled.form`

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../../axios/api";
 import Button from "../../components/Button";
 import { ContentInput, Input } from "../../components/Input";
-import useInput from "../../hooks/useInput";
+import useInputVer2 from "../../hooks/useInputVer2";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../firebase";
 import {
@@ -15,14 +15,18 @@ import {
   ImageInput,
   Label,
 } from "./style";
+import FillWarningModal from "../Modal/FillWarningModal";
+import UpdateDone from "../Modal/UpdateDone";
 
 function UpdatePost() {
-  const [title, onChangeTitleHandler] = useInput("");
-  const [content, onChangeContentHandler] = useInput("");
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [polaroid, setPolaroid] = useState(null);
   const [updateButtonDisabled, setUpdateButtonDisabled] = useState(false);
+  const [title, setTitle, onChangeTitleHandler] = useInputVer2("");
+  const [content, setContent, onChangeContentHandler] = useInputVer2("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDoneModalOpen, setIsDoneModalOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -33,6 +37,8 @@ function UpdatePost() {
     const { data } = await api.get(`/polaroid/${id}`);
     setPolaroid(data);
     setImagePreview(data?.image);
+    setTitle(data?.title);
+    setContent(data?.content);
   };
 
   useEffect(() => {
@@ -62,9 +68,7 @@ function UpdatePost() {
       if (downloadURL !== null) {
         return downloadURL;
       }
-    } catch (error) {
-      alert("사진을 추가해주세요!");
-    }
+    } catch (error) {}
   };
 
   const backButtonClickHandler = () => {
@@ -72,28 +76,30 @@ function UpdatePost() {
   };
 
   useEffect(() => {
-    setUpdateButtonDisabled(!(title && content));
-  }, [title, content]);
+    setUpdateButtonDisabled(!title);
+  }, [title]);
 
   const updateButtonClickHandler = async (event) => {
     event.preventDefault();
+    try {
+      if (updateButtonDisabled) {
+        setIsModalOpen(true);
+        return;
+      }
 
-    if (updateButtonDisabled) {
-      return;
-    }
+      let imageLink = polaroid.image;
 
-    let imageLink = polaroid.image;
+      if (imageFile !== null) {
+        imageLink = await handleUpload();
+      }
 
-    if (imageFile !== null) {
-      imageLink = await handleUpload();
-    }
-
-    api.patch(`/polaroid/${id}`, {
-      title: title,
-      content: content,
-      image: imageLink,
-    });
-    navigate("/");
+      api.patch(`/polaroid/${id}`, {
+        title: title,
+        content: content,
+        image: imageLink,
+      });
+      setIsDoneModalOpen(true);
+    } catch (error) {}
   };
 
   return (
@@ -114,6 +120,19 @@ function UpdatePost() {
         >
           UPDATE
         </Button>
+        {isModalOpen && (
+          <FillWarningModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
+        )}
+
+        {isDoneModalOpen && (
+          <UpdateDone
+            isModalOpen={isDoneModalOpen}
+            setIsModalOpen={setIsDoneModalOpen}
+          />
+        )}
       </Buttons>
 
       <Polaroid>
@@ -134,7 +153,6 @@ function UpdatePost() {
               value={title}
               id="title"
               onChange={onChangeTitleHandler}
-              placeholder={polaroid?.title}
             />
           </h1>
 
@@ -144,7 +162,6 @@ function UpdatePost() {
               value={content}
               id="content"
               onChange={onChangeContentHandler}
-              placeholder={polaroid?.content}
             />
           </h2>
           <span>@{polaroid?.user}</span>

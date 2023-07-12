@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 const DetailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1300px;
   padding: 10px 0;
   margin: 0 auto;
   margin-bottom: 100px;
@@ -14,10 +13,6 @@ const Buttons = styled.div`
   justify-content: space-between;
   width: 97vw;
   margin-bottom: 30px;
-
-  @media screen and (min-width: 1300px) {
-    width: 1300px;
-  }
 `;
 
 const Polaroid = styled.div`
@@ -40,6 +35,7 @@ const Image = styled.img`
   align-items: center;
   width: 468px;
   height: 468px;
+  border: 0.5px solid #2c2c2c;
   object-fit: cover;
 `;
 

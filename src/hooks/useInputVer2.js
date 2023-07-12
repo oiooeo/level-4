@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const useInput = (initialValue) => {
+const useInputVer2 = (initialValue) => {
   const [value, setValue] = useState(initialValue);
 
   const handler = (e) => {
     setValue(e.target.value);
   };
 
-  return [value, handler];
+  return [value, setValue, handler];
 };
 
-export default useInput;
+export default useInputVer2;
