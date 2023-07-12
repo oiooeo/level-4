@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-function UpdateDone({ isModalOpen, setIsModalOpen }) {
+function Success({ isModalOpen, setIsModalOpen, text }) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,12 +19,12 @@ function UpdateDone({ isModalOpen, setIsModalOpen }) {
   return (
     <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
       <Type>✅ Success !</Type>
-      <Text>반영되었습니다</Text>
+      <Text>{text}</Text>
     </Modal>
   );
 }
 
-export default UpdateDone;
+export default Success;
 
 const Type = styled.p`
   font-weight: 500;
