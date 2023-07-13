@@ -3,14 +3,11 @@ import Modal from "./Modal";
 import { styled } from "styled-components";
 import Button from "../Button";
 import api from "../../axios/api";
-import { useNavigate } from "react-router-dom";
 
 function DeleteConfirm({ id, isModalOpen, setIsModalOpen }) {
-  const navigate = useNavigate();
-
   const deleteButtonClickHandler = () => {
     api.delete(`polaroid/${id}`);
-    navigate("/");
+    window.location.href = "/";
   };
 
   const cancelButtonClickHandler = () => {

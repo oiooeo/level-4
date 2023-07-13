@@ -1,18 +1,15 @@
 import React, { useEffect } from "react";
 import Modal from "./Modal";
 import { styled } from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 function Success({ isModalOpen, setIsModalOpen, text }) {
-  const navigate = useNavigate();
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsModalOpen(false);
     }, 1000);
     return () => {
       clearTimeout(timer);
-      navigate("/");
+      window.location.href = "/";
     };
   }, []);
 
