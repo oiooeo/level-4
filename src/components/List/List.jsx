@@ -3,6 +3,8 @@ import { ListContainer, Li, Image, DIV } from "./style";
 import { useQuery } from "react-query";
 import { getPolaroid } from "../../api/polaroid";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Loading";
+import Error from "../Error";
 
 function List() {
   const navigation = useNavigate();
@@ -10,11 +12,19 @@ function List() {
   const JsonData = data?.data || [];
 
   if (isLoading) {
-    return <p>로딩중입니다....!</p>;
+    return (
+      <ListContainer>
+        <Loading />
+      </ListContainer>
+    );
   }
 
   if (isError) {
-    return <p>오류가 발생하였습니다...!</p>;
+    return (
+      <ListContainer>
+        <Error />
+      </ListContainer>
+    );
   }
 
   const polaroidClickEventHandler = (id) => {

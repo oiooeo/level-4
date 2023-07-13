@@ -17,6 +17,7 @@ import {
 } from "./style";
 import FillWarningModal from "../Modal/FillWarningModal";
 import Success from "../Modal/Success";
+import ErrorModal from "../Modal/ErrorModal";
 
 function UpdatePost() {
   const [imageFile, setImageFile] = useState(null);
@@ -27,6 +28,7 @@ function UpdatePost() {
   const [content, setContent, onChangeContentHandler] = useInputVer2("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDoneModalOpen, setIsDoneModalOpen] = useState(false);
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -68,7 +70,9 @@ function UpdatePost() {
       if (downloadURL !== null) {
         return downloadURL;
       }
-    } catch (error) {}
+    } catch (error) {
+      setIsErrorModalOpen(true);
+    }
   };
 
   const backButtonClickHandler = () => {
@@ -99,8 +103,11 @@ function UpdatePost() {
         content: content,
         image: imageLink,
       });
+
       setIsDoneModalOpen(true);
-    } catch (error) {}
+    } catch (error) {
+      setIsErrorModalOpen(true);
+    }
   };
 
   return (
@@ -133,6 +140,14 @@ function UpdatePost() {
             isModalOpen={isDoneModalOpen}
             setIsModalOpen={setIsDoneModalOpen}
             text={"수정되었습니다"}
+          />
+        )}
+
+        {isErrorModalOpen && (
+          <ErrorModal
+            isModalOpen={isErrorModalOpen}
+            setIsModalOpen={setIsErrorModalOpen}
+            text={"수정을 실패했습니다"}
           />
         )}
       </Buttons>
