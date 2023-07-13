@@ -9,7 +9,7 @@ import Error from "../Error";
 function List() {
   const navigation = useNavigate();
   const { isLoading, isError, data } = useQuery("polaroid", getPolaroid);
-  const JsonData = data?.data || [];
+  const JsonData = data?.data.reverse() || [];
 
   if (isLoading) {
     return (
